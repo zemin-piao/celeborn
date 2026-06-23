@@ -32,6 +32,24 @@ Configure kubectl to connect to the Kubernetes cluster.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 - [Helm 3.0+](https://helm.sh/docs/using_helm/#installing-helm)
 
+## Helm repository
+
+The chart is published as a Helm repository hosted on GitHub Pages. Install it
+without cloning this repository:
+
+```shell
+helm repo add celeborn https://apache.github.io/celeborn/
+helm repo update
+helm install celeborn celeborn/celeborn
+```
+
+To install a specific chart version:
+
+```shell
+helm search repo celeborn/celeborn --versions
+helm install celeborn celeborn/celeborn --version 0.1.0
+```
+
 ## Template rendering
 
 When you want to test the template rendering, but not actually install anything. [Debugging templates](https://helm.sh/docs/chart_template_guide/debugging/) provide a quick way of viewing the generated content without YAML parse errors blocking.
